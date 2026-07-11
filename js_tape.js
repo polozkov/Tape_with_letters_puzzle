@@ -208,7 +208,7 @@ function f_add_matrixes() {
     }
 
     f_set_svg(0, true, 90, f0_text_i_j, null);
-    f_set_svg(1, true, 270, f1_text_i_j, ARR_TEXT_INFO_ROWS.reverse());
+    f_set_svg(1, false, 270, f1_text_i_j, ARR_TEXT_INFO_ROWS.reverse());
     f_set_svg(2, true, 0, f2_text_i_j, null);
 };
 
