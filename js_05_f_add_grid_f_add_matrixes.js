@@ -75,16 +75,21 @@ function f_add_matrixes() {
     }
     
     function f_set_svg(INDEX_SVG, flag_rect, deg_rotate, i_set_text, TEXT_INFO_ROWS) {
+        window.POLOZKOV.SVG_ARRAY[INDEX_SVG].innerHTML = "";
         f_add_grid(INDEX_SVG, flag_rect, f_m_ij(i_set_text), deg_rotate, TEXT_INFO_ROWS)
     }
 
     f_set_svg(0, true, 90, 0, null);
     f_set_svg(1, false, 270, 1, window.POLOZKOV.TEXT_INFO.ARR_TEXT_INFO_ROWS.reverse());
-    f_set_svg(2, true, 0, 2, null);
 
     window.POLOZKOV.DRAW.f_calculate_text_transforms();
 };
 
-//console.time("Время выполнения");
-f_add_matrixes(); // отрисуй все три страницы
-//console.timeEnd("Время выполнения");
+function f_renew_and_draw() {
+    window.POLOZKOV.EL.f_renew();
+    f_add_matrixes();
+    console.log(window.POLOZKOV);
+};
+
+f_renew_and_draw();
+window.POLOZKOV.EL.BUTTON_REDRAW.onclick = f_renew_and_draw;

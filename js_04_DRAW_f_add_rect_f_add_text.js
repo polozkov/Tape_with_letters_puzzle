@@ -32,6 +32,10 @@ window.POLOZKOV.DRAW.f_calculate_text_transforms = function() {
     for (let key in text_transform_matrixes) {
         if (text_transform_matrixes.hasOwnProperty(key)) {
             let m = text_transform_matrixes[key];
+            let my_text = document.getElementById(key).innerHTML;
+            if ((!my_text) || (my_text.trim() === "")) {
+                m = [1,0,0,1,0,0];
+            }
             document.getElementById(key).setAttribute("transform",`matrix(${m[0]} ${m[1]} ${m[2]} ${m[3]} ${m[4]} ${m[5]})`);
         }
     }
@@ -40,7 +44,7 @@ window.POLOZKOV.DRAW.f_calculate_text_transforms = function() {
 // добвавь svg-элемент "текст", который должен быть в рамке и повёрнут на нужный угол
 window.POLOZKOV.DRAW.f_add_text = function(SVG_EL, x, y, width, height, my_text, angle_0_90_180_270, FILL_TEXT, FONT_WEIGHT, my_id) {
     // если текст пустая строка, или не строка, или пробел, то ничего не делай
-    if ((!my_text) || (my_text.trim() === "")) {return; };
+    //if ((!my_text) || (my_text.trim() === "")) {return; };
 
     let text = document.createElementNS(window.POLOZKOV.SVG_NS, "text");
     text.setAttribute("x", 0);
@@ -56,5 +60,9 @@ window.POLOZKOV.DRAW.f_add_text = function(SVG_EL, x, y, width, height, my_text,
     text.textContent = my_text;
 
     SVG_EL.appendChild(text);
-    window.POLOZKOV.DRAW.text_transforms[my_id] = ({x:x, y:y, width:width, height:height, angle_0_90_180_270: angle_0_90_180_270});
+    if ((!my_text) || (my_text.trim() === "")) {
+        window.POLOZKOV.DRAW.text_transforms[my_id] = ({x:0, y:0, width:1, height:1, angle_0_90_180_270: 0});
+    } else {
+        window.POLOZKOV.DRAW.text_transforms[my_id] = ({x:x, y:y, width:width, height:height, angle_0_90_180_270: angle_0_90_180_270});
+    }
 };

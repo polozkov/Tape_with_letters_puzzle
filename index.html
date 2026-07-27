@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Головоломка полоска с буквами</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+        @media print {
+            @page {margin: 0;}
+            html,body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .class_not_print {display: none !important;}
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+        svg text {white-space: pre-wrap !important; }
+
+        .class_input_info,
+        .class_input_task,
+        .class_input_indexes {
+            font-family: monospace;
+            font-size: 16pt;
+        }
+        .class_input_info {width: 90ch;}
+        .class_input_task {width: 30ch;}
+        .class_input_indexes {width: 7ch;}
+
+        .class_button {font-family: monospace; font-size: 24pt;}
+    </style>
+</head>
+
+<body>
+    <div class="class_not_print">
+        <p>
+            <button class="class_button" id="id_button_redraw">Перерисуй</button>
+            <button class="class_button" id="id_button_print" onclick="window.print()">Печатай</button><br>
+            <input id="id_indexes" class="class_input_indexes" type="text" value="111122">
+        </p>
+
+        <p> <input id="id_info_1" class="class_input_info" type="text"
+                value="Сгибая лишь сгибы, сложите без горок имя «Сергей»."><br>
+            <input id="id_task_1" class="class_input_task" type="text" value="ЕРГСГЙГСЕЙРЕСЕ;СЕЙГРРГСЕЕРГЙЕ">
+        </p>
+
+        <p> <input id="id_info_2" class="class_input_info" type="text"
+                value="Сгибая лишь сгибы, сложите без горок имя «Костя»."><br>
+            <input id="id_task_2" class="class_input_task" type="text" value="СОЯЯОЯОЯССТЯЯТ;ТОЯОССЯТОСЯОЯТ">
+        </p>
+
+        <p> <input id="id_info_3" class="class_input_info" type="text" value=""><br>
+            <input id="id_task_3" class="class_input_task" type="text" value="">
+        </p>
+
+        <p> <input id="id_info_4" class="class_input_info" type="text" value=""><br>
+            <input id="id_task_4" class="class_input_task" type="text" value="">
+        </p>
+
+        <p> <input id="id_info_5" class="class_input_info" type="text" value=""><br>
+            <input id="id_task_5" class="class_input_task" type="text" value="">
+        </p>
+
+        <p> <input id="id_info_6" class="class_input_info" type="text" value=""><br>
+            <input id="id_task_6" class="class_input_task" type="text" value="">
+        </p>
+    </div>
+
+    <svg id="id_svg_0" width="210mm" height="297mm" viewBox="0 0 210 297" style="background:none"></svg>
+    <svg id="id_svg_1" width="210mm" height="297mm" viewBox="0 0 210 297" style="background:none"></svg>
+
+    <script type="text/javascript" src="js_01_WINDOW.js"></script>
+    <script type="text/javascript" src="js_02_ELEMENTS.js"></script>
+
+    <script type="text/javascript" src="js_03_TRANSFORM_MATRIX.js"></script>
+    <script type="text/javascript" src="js_04_DRAW_f_add_rect_f_add_text.js"></script>
+    <script type="text/javascript" src="js_05_f_add_grid_f_add_matrixes.js"></script>
+    
+</body>
+
+</html>
